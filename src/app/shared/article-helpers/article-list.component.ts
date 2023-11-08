@@ -36,6 +36,10 @@ export class ArticleListComponent implements OnDestroy {
 
   constructor(private articlesService: ArticlesService) {}
 
+  ngAfterViewInit() {
+    console.log("limit: ", this.limit);
+  }
+
   ngOnDestroy() {
     this.destroy$.next();
     this.destroy$.complete();
