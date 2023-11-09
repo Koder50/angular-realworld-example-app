@@ -31,7 +31,8 @@ export class HomeComponent implements OnInit, OnDestroy {
     filters: {},
   };
   tags$ = inject(TagsService)
-    .getAll()
+    //.getAll()
+    .getSome(10)
     .pipe(tap(() => (this.tagsLoaded = true)));
   tagsLoaded = false;
   destroy$ = new Subject<void>();
