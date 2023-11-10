@@ -13,6 +13,7 @@ import { Errors } from "../../core/models/errors.model";
 import { ArticlesService } from "../../core/services/articles.service";
 import { UserService } from "../../core/services/user.service";
 import { ListErrorsComponent } from "../../shared/list-errors.component";
+import { SortService } from "src/app/core/services/sort.service";
 
 interface ArticleForm {
   title: FormControl<string>;
@@ -43,7 +44,8 @@ export class EditorComponent implements OnInit, OnDestroy {
     private readonly articleService: ArticlesService,
     private readonly route: ActivatedRoute,
     private readonly router: Router,
-    private readonly userService: UserService
+    private readonly userService: UserService,
+    public sortService: SortService
   ) {}
 
   ngOnInit() {

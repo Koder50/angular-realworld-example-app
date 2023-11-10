@@ -47,7 +47,9 @@
 
         <ul class="tag-list">
           <li
-            *ngFor="let tag of article.tagList"
+            *ngFor="
+              let tag of article.tagList.sort(this.sortService.compareAsc)
+            "
             class="tag-default tag-pill tag-outline"
           >
             {{ tag }}

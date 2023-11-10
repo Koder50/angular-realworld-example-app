@@ -4,6 +4,7 @@ import { ArticleMetaComponent } from "./article-meta.component";
 import { FavoriteButtonComponent } from "../buttons/favorite-button.component";
 import { RouterLink } from "@angular/router";
 import { NgForOf } from "@angular/common";
+import { SortService } from "src/app/core/services/sort.service";
 
 @Component({
   selector: "app-article-preview",
@@ -13,6 +14,13 @@ import { NgForOf } from "@angular/common";
 })
 export class ArticlePreviewComponent {
   @Input() article!: Article;
+
+  constructor(public sortService: SortService) {}
+
+  // ngAfterViewInit() {
+  //   console.log(this.article);
+  //   let
+  // }
 
   toggleFavorite(favorited: boolean): void {
     this.article.favorited = favorited;

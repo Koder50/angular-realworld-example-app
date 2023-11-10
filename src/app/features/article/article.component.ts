@@ -19,6 +19,7 @@ import { Comment } from "../../core/models/comment.model";
 import { ShowAuthedDirective } from "../../shared/show-authed.directive";
 import { Errors } from "../../core/models/errors.model";
 import { Profile } from "../../core/models/profile.model";
+import { SortService } from "src/app/core/services/sort.service";
 
 @Component({
   selector: "app-article-page",
@@ -59,7 +60,8 @@ export class ArticleComponent implements OnInit, OnDestroy {
     private readonly articleService: ArticlesService,
     private readonly commentsService: CommentsService,
     private readonly router: Router,
-    private readonly userService: UserService
+    private readonly userService: UserService,
+    public sortService: SortService
   ) {}
 
   ngOnInit(): void {

@@ -12,6 +12,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 import { TokenInterceptor } from "./core/interceptors/token.interceptor";
 import { ErrorInterceptor } from "./core/interceptors/error.interceptor";
 import { ApiInterceptor } from "./core/interceptors/api.interceptor";
+import { SortService } from "./core/services/sort.service";
 
 export function initAuth(jwtService: JwtService, userService: UserService) {
   return () => (jwtService.getToken() ? userService.getCurrentUser() : EMPTY);
@@ -33,6 +34,7 @@ export function initAuth(jwtService: JwtService, userService: UserService) {
       deps: [JwtService, UserService],
       multi: true,
     },
+    { provide: SortService },
     { provide: HTTP_INTERCEPTORS, useClass: ApiInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
